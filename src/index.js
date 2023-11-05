@@ -10,6 +10,7 @@ const elements = {
   loader: document.querySelector('.loader'),
   error: document.querySelector('.error'),
   catInfo: document.querySelector('.cat-info'),
+  container: document.getElementById('myslider'),
 };
 
 elements.error.classList.add('is-hidden');
@@ -63,14 +64,13 @@ function handlerOption(evt) {
         'beforeend',
         createMarkup(selectedArr, selectedId)
       );
-      const container = document.getElementById('myslider');
-      container.insertAdjacentHTML('afterbegin', createCatImg(data));
+      elements.container.insertAdjacentHTML('afterbegin', createCatImg(data));
       simpleslider.getSlider({
-        container: document.getElementById('myslider'),
+        container: elements.container,
         prop: 'left',
-        init: -612,
+        init: -312,
         show: 0,
-        end: 612,
+        end: 312,
         unit: 'px',
       });
     })
